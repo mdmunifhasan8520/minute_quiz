@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    //create a QuestioBank object
+    let allQuestions = QuestionBank()
+    
+    //create a variable
+    var pickedAnswer : Bool = false
+    
     //ui elements from the storyboard
     @IBOutlet weak var questionImage: UIImageView!
     @IBOutlet weak var questionLabel: UILabel!
@@ -21,19 +27,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let firstQuestion = allQuestions.list[0]
+        questionImage.image = firstQuestion.questionImage
+        questionLabel.text = firstQuestion.questionText
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    //The action gets called when the true or false button pressed
-    @IBAction func answerPressed(_ sender: Any) {
-        
-        
-    }
   
-
+    @IBAction func answerPressed(_ sender: AnyObject) {
+        if (sender as AnyObject).tag == 1 {
+            pickedAnswer = true
+        } else if sender.tag == 2 {
+            pickedAnswer = false
+        }
+    }
 }
 
