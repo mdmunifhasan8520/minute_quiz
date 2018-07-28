@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //creating question object
         let firstQuestion = allQuestions.list[0]
         questionImage.image = firstQuestion.questionImage
         questionLabel.text = firstQuestion.questionText
@@ -43,6 +44,18 @@ class ViewController: UIViewController {
             pickedAnswer = true
         } else if sender.tag == 2 {
             pickedAnswer = false
+        }
+        
+        checkAnswer()
+    }
+    
+    func checkAnswer() {
+        let correctAnswer = allQuestions.list[0].answer
+        
+        if correctAnswer == pickedAnswer {
+            print("you got it")
+        } else {
+            print("shame")
         }
     }
 }
