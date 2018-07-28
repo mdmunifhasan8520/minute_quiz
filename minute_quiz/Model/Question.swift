@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+class Question {
+    //create properties
+    let questionImage: String
+    let questionText: String
+    let answer: Bool
+    
+    //initialize properties
+    init(image: String, text:String, correctAnswer: Bool) {
+        questionImage = image
+        questionText = text
+        answer = correctAnswer
+    }
+}
