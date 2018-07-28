@@ -6,16 +6,17 @@
 //  Copyright © 2018 Code Drizzlers. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Question {
     //create properties
-    let questionImage: String
+    let questionImage: UIImage!
     let questionText: String
     let answer: Bool
     
+    
     //initialize properties
-    init(image: String, text:String, correctAnswer: Bool) {
+    init(image: UIImage, text:String, correctAnswer: Bool) {
         questionImage = image
         questionText = text
         answer = correctAnswer
