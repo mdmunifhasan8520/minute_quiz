@@ -20,6 +20,11 @@ class ViewController: UIViewController {
     //for track the score
     var score : Int = 0
     
+    //for track the current and wrong answer
+    var correctAnswerCount : Int = 0
+    var wrongAnswerCount : Int = 0
+    
+    
     //for the Timer
     var startInt = 5
     var startTimer = Timer()
@@ -31,6 +36,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var timer: UILabel!
+    @IBOutlet weak var correctAnswerCountLabel: UILabel!
+    @IBOutlet weak var wrongAnswerCountLabel: UILabel!
+    
     
     
     override func viewDidLoad() {
@@ -68,6 +76,11 @@ class ViewController: UIViewController {
         }
     
     func updateUI() {
+        //for correct and wrong anser counter
+        
+        correctAnswerCountLabel.text = "\(correctAnswerCount)"
+        wrongAnswerCountLabel.text = "\(wrongAnswerCount)"
+        
         //scoreLabel.text = String(score)
         scoreLabel.text = "Score: \(score)"
         progressLabel.text = "\(questionNumber + 1) / 5"
@@ -111,13 +124,17 @@ class ViewController: UIViewController {
         if correctAnswer == pickedAnswer {
             print("you got it")
             score = score + 1
+            correctAnswerCount = correctAnswerCount + 1
         
         } else {
             print("shame")
+            wrongAnswerCount = wrongAnswerCount + 1
         }
     }
     
     func startOver() {
+        wrongAnswerCount = 0
+        correctAnswerCount = 0
         score = 0
         questionNumber = 0
         startInt = 30
