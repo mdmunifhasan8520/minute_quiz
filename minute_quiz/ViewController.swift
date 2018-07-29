@@ -61,8 +61,17 @@ class ViewController: UIViewController {
             questionImage.image = allQuestions.list[questionNumber].questionImage
             questionLabel.text = allQuestions.list[questionNumber].questionText
         } else {
-            print("the end")
-            questionNumber = 0
+            //create an AlertViewController object
+            let alert = UIAlertController(title: "Awesome", message: "You have finished the quiz", preferredStyle: .alert)
+            
+            let restartAction = UIAlertAction(title: "Restart", style: .default, handler:
+                { (UIAlertAction) in
+                self.startOver()
+            })
+            alert.addAction(restartAction)
+            
+            present(alert, animated: true, completion: nil)
+            
         }
     }
     
@@ -74,6 +83,11 @@ class ViewController: UIViewController {
         } else {
             print("shame")
         }
+    }
+    
+    func startOver() {
+        questionNumber = 0
+        nextQuestion()
     }
 }
 
