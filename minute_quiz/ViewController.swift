@@ -21,7 +21,8 @@ class ViewController: UIViewController {
     var score : Int = 0
     
     //for the Timer
-    
+    var startInt = 5
+    var startTimer = Timer()
     
     //ui elements from the storyboard
     @IBOutlet weak var questionImage: UIImageView!
@@ -29,6 +30,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressBar: UIView!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var timer: UILabel!
     
     
     override func viewDidLoad() {
@@ -42,7 +44,7 @@ class ViewController: UIViewController {
         questionImage.image = firstQuestion.questionImage
         questionLabel.text = firstQuestion.questionText
             */
-        nextQuestion()
+        gameStart()
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,7 +74,12 @@ class ViewController: UIViewController {
         
         progressBar.frame.size.width = (view.frame.size.width / 5) * CGFloat(questionNumber + 1)
     }
-    
+    func gameStart() {
+        timer.text = "\(startInt)"
+        startTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startGameTimer), userInfo: nil, repeats: true)
+        nextQuestion()
+
+    }
     
     func nextQuestion() {
         
@@ -83,6 +90,7 @@ class ViewController: UIViewController {
             
             updateUI()
         } else {
+            startTimer.invalidate()
             //create an AlertViewController object
             let alert = UIAlertController(title: "Awesome", message: "You have finished the quiz", preferredStyle: .alert)
             
@@ -112,7 +120,26 @@ class ViewController: UIViewController {
     func startOver() {
         score = 0
         questionNumber = 0
-        nextQuestion()
+        startInt = 30
+        gameStart()
+    }
+    
+    @objc func startGameTimer() {
+        startInt -= 1
+        timer.text = "\(startInt)"
+        
+        if startInt == 0 {
+            startTimer.invalidate()
+            let alert = UIAlertController(title: "Times Up", message: "could not answer all question", preferredStyle: .alert)
+            
+            let restartAction = UIAlertAction(title: "Restart", style: .default, handler:
+            { (UIAlertAction) in
+                self.startOver()
+            })
+            alert.addAction(restartAction)
+            
+            present(alert, animated: true, completion: nil)
+        }
     }
 }
 
