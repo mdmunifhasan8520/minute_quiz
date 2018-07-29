@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     var pickedAnswer : Bool = false
     var questionNumber : Int = 0
     
+    //for track the score
+    var score : Int = 0
+    
     //ui elements from the storyboard
     @IBOutlet weak var questionImage: UIImageView!
     @IBOutlet weak var questionLabel: UILabel!
@@ -57,13 +60,22 @@ class ViewController: UIViewController {
         questionNumber = questionNumber + 1
         
         nextQuestion()
-        
+        }
+    
+    func updateUI() {
+        //scoreLabel.text = String(score)
+        scoreLabel.text = "Score: \(score)"
     }
+    
+    
     func nextQuestion() {
         
         if questionNumber <= 4 {
+            
             questionImage.image = allQuestions.list[questionNumber].questionImage
             questionLabel.text = allQuestions.list[questionNumber].questionText
+            
+            updateUI()
         } else {
             //create an AlertViewController object
             let alert = UIAlertController(title: "Awesome", message: "You have finished the quiz", preferredStyle: .alert)
@@ -84,6 +96,8 @@ class ViewController: UIViewController {
         
         if correctAnswer == pickedAnswer {
             print("you got it")
+            score = score + 1
+        
         } else {
             print("shame")
         }
