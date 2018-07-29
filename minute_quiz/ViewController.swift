@@ -30,9 +30,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         //creating question object
+        /*//next question function is alternative for below three line
+         
         let firstQuestion = allQuestions.list[0]
         questionImage.image = firstQuestion.questionImage
         questionLabel.text = firstQuestion.questionText
+            */
+        nextQuestion()
     }
 
     override func didReceiveMemoryWarning() {
