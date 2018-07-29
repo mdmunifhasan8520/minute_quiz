@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     //create a variable
     var pickedAnswer : Bool = false
+    var questionNumber : Int = 0
     
     //ui elements from the storyboard
     @IBOutlet weak var questionImage: UIImageView!
@@ -47,10 +48,15 @@ class ViewController: UIViewController {
         }
         
         checkAnswer()
+        
+        //after checking the answer proceed to the next question
+        questionNumber = questionNumber + 1
+        questionImage.image = allQuestions.list[questionNumber].questionImage
+        questionLabel.text = allQuestions.list[questionNumber].questionText
     }
     
     func checkAnswer() {
-        let correctAnswer = allQuestions.list[0].answer
+        let correctAnswer = allQuestions.list[questionNumber].answer
         
         if correctAnswer == pickedAnswer {
             print("you got it")
