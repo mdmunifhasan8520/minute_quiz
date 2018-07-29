@@ -20,6 +20,9 @@ class ViewController: UIViewController {
     //for track the score
     var score : Int = 0
     
+    //for the Timer
+    
+    
     //ui elements from the storyboard
     @IBOutlet weak var questionImage: UIImageView!
     @IBOutlet weak var questionLabel: UILabel!
@@ -107,6 +110,7 @@ class ViewController: UIViewController {
     }
     
     func startOver() {
+        score = 0
         questionNumber = 0
         nextQuestion()
     }
