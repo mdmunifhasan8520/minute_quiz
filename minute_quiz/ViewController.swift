@@ -51,8 +51,19 @@ class ViewController: UIViewController {
         
         //after checking the answer proceed to the next question
         questionNumber = questionNumber + 1
-        questionImage.image = allQuestions.list[questionNumber].questionImage
-        questionLabel.text = allQuestions.list[questionNumber].questionText
+        
+        nextQuestion()
+        
+    }
+    func nextQuestion() {
+        
+        if questionNumber <= 4 {
+            questionImage.image = allQuestions.list[questionNumber].questionImage
+            questionLabel.text = allQuestions.list[questionNumber].questionText
+        } else {
+            print("the end")
+            questionNumber = 0
+        }
     }
     
     func checkAnswer() {
