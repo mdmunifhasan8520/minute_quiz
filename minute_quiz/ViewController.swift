@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     var questionNumber : Int = 0
     
     //for track the score
+    var bestScore: Int = 0
     var score : Int = 0
     
     //for track the current and wrong answer
@@ -52,6 +53,7 @@ class ViewController: UIViewController {
         questionImage.image = firstQuestion.questionImage
         questionLabel.text = firstQuestion.questionText
             */
+        
         gameStart()
     }
 
@@ -96,6 +98,11 @@ class ViewController: UIViewController {
         
         //scoreLabel.text = String(score)
         scoreLabel.text = "Score: \(score)"
+        
+        if score >= bestScore {
+            bestScore = score
+        }
+        print("Best Score:\(bestScore)")
     }
     
     func gameStart() {
