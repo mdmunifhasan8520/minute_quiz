@@ -76,17 +76,28 @@ class ViewController: UIViewController {
         }
     
     func updateUI() {
-        //for correct and wrong anser counter
         
+        //for correct and wrong anser counter
         correctAnswerCountLabel.text = "\(correctAnswerCount)"
         wrongAnswerCountLabel.text = "\(wrongAnswerCount)"
         
         //scoreLabel.text = String(score)
         scoreLabel.text = "Score: \(score)"
+        
         progressLabel.text = "\(questionNumber + 1) / 5"
         
         progressBar.frame.size.width = (view.frame.size.width / 5) * CGFloat(questionNumber + 1)
     }
+    
+    func summeryUI() {
+        //for correct and wrong anser counter
+        correctAnswerCountLabel.text = "\(correctAnswerCount)"
+        wrongAnswerCountLabel.text = "\(wrongAnswerCount)"
+        
+        //scoreLabel.text = String(score)
+        scoreLabel.text = "Score: \(score)"
+    }
+    
     func gameStart() {
         timer.text = "\(startInt)"
         startTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startGameTimer), userInfo: nil, repeats: true)
@@ -103,6 +114,7 @@ class ViewController: UIViewController {
             
             updateUI()
         } else {
+            summeryUI()
             startTimer.invalidate()
             //create an AlertViewController object
             let alert = UIAlertController(title: "Awesome", message: "You have finished the quiz", preferredStyle: .alert)

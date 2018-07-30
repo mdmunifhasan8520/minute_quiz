@@ -16,6 +16,7 @@
 		FA898465210CEC2C00AA94AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA898463210CEC2C00AA94AF /* LaunchScreen.storyboard */; };
 		FA898471210CEE7000AA94AF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA898470210CEE7000AA94AF /* Default-568h@2x.png */; };
 		FACA2605210E46DD0002CF7C /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA2604210E46DD0002CF7C /* StartScreenViewController.swift */; };
+		FACA2609210E8DDA0002CF7C /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA2608210E8DDA0002CF7C /* ArchiveViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FA898466210CEC2C00AA94AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA898470210CEE7000AA94AF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FACA2604210E46DD0002CF7C /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
+		FACA2608210E8DDA0002CF7C /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				FA89845C210CEC2300AA94AF /* ViewController.swift */,
 				FA89845A210CEC2300AA94AF /* AppDelegate.swift */,
 				FACA2604210E46DD0002CF7C /* StartScreenViewController.swift */,
+				FACA2608210E8DDA0002CF7C /* ArchiveViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1C747E210D03DF00ED639D /* Question.swift in Sources */,
+				FACA2609210E8DDA0002CF7C /* ArchiveViewController.swift in Sources */,
 				FA1C7480210D0D3C00ED639D /* QuestionBank.swift in Sources */,
 				FA89845D210CEC2300AA94AF /* ViewController.swift in Sources */,
 				FA89845B210CEC2300AA94AF /* AppDelegate.swift in Sources */,
